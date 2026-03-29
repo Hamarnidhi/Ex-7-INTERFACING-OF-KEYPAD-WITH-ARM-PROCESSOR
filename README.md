@@ -95,15 +95,18 @@ unsigned char key(void)
 	    ch='4';
 	    break;
 	  }	
-	
-	
-
 	}
 	return ch;
 }
 
 ```
 ## OUTPUT
+<img width="896" height="520" alt="image" src="https://github.com/user-attachments/assets/544aef0f-eee7-4ead-a6fd-f318b518e09f" />
 
 ## RESULT:
 Thus an embedded c program to interface keyboard with ARM processor was executed and output was verified successfully
+
+
+
+
+M
