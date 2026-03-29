@@ -31,7 +31,8 @@ CMSIS core, CMSIS boot, common header file, SYSCON, GPIO, IOCON, UART, SSP.
 ### Source files:
 lcd.c, lcd.h,
 ## PROGRAM
-```#include <LPC17xx.h>
+```
+#include <LPC17xx.h>
 #include "lcd.h"
 #include "delay.h"     
 #include "gpio.h"
@@ -95,17 +96,16 @@ unsigned char key(void)
 	    ch='4';
 	    break;
 	  }	
+	
+	
+
 	}
 	return ch;
 }
-
+																		     
 ```
 ## OUTPUT
-<img width="896" height="520" alt="image" src="https://github.com/user-attachments/assets/544aef0f-eee7-4ead-a6fd-f318b518e09f" />
+![WhatsApp Image 2026-03-17 at 11 00 59 AM](https://github.com/user-attachments/assets/11493e2d-8796-4fbd-b86e-59185822f42f)
 
 ## RESULT:
 Thus an embedded c program to interface keyboard with ARM processor was executed and output was verified successfully
-
-
-
-
