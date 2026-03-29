@@ -31,7 +31,78 @@ CMSIS core, CMSIS boot, common header file, SYSCON, GPIO, IOCON, UART, SSP.
 ### Source files:
 lcd.c, lcd.h,
 ## PROGRAM
+```#include <LPC17xx.h>
+#include "lcd.h"
+#include "delay.h"     
+#include "gpio.h"
+#define SWITCH1 P1_26
+#define SWITCH2 P1_27
+#define SWITCH3 P1_28
+#define SWITCH4 P1_29
 
+unsigned char key(void);
+
+int main() 
+{
+ 	
+    SystemInit();
+	
+ 	 
+	LCD_SetUp(P1_18,P1_19,P1_20,P_NC,P_NC,P_NC,P_NC,P1_21,P1_22,P1_23,P1_24); 
+    LCD_Init(2,16);
+	
+	LCD_Printf("**Key Pressed**");
+   	GPIO_PinDirection(SWITCH1,INPUT);             /* Configure Switch pins as input */
+    GPIO_PinDirection(SWITCH2,INPUT);
+    GPIO_PinDirection(SWITCH3,INPUT);
+	GPIO_PinDirection(SWITCH4,INPUT);  
+
+  
+    while (1) 
+    {
+       	char val=key();
+	    LCD_GoToLine(1);
+	    LCD_DisplayChar(val);
+    }    
+}
+unsigned char key(void)
+{
+   char ch;
+   	while(1)
+	{
+	  if(!GPIO_PinRead(SWITCH1))
+	  {
+	     DELAY_us(200);
+		 ch='1';
+
+		 break;
+	  }
+	  else if(!GPIO_PinRead(SWITCH2))
+	  {
+	  	DELAY_us(200);
+	    ch='2';
+	    break;
+	  }
+	  else if(!GPIO_PinRead(SWITCH3))
+	  {
+	  	DELAY_us(200);
+	    ch='3';
+	    break;
+	  }
+	  else if(!GPIO_PinRead(SWITCH4))
+	  {
+	  	DELAY_us(200);
+	    ch='4';
+	    break;
+	  }	
+	
+	
+
+	}
+	return ch;
+}
+
+```
 ## OUTPUT
 
 ## RESULT:
